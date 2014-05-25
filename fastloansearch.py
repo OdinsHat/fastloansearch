@@ -95,12 +95,14 @@ def page_about():
 
 ### Utility Functions ###
 
-def search_google(query):
+def search_google(query, page):
     requesturl = "https://www.googleapis.com/customsearch/v1"
     cse = "008208809341786190865:lstx_fuuzog"
     apikey = "AIzaSyChRMCztfdN94uJWfHhaPUhQh102uMFV_k"
-    fullurl = "%s?cx=%s&key=%s&q=%sfilter=1" % (requesturl, cse, apikey, query)
-
+    fullurl = "%s?cx=%s&key=%s&q=%s&filter=1" % (requesturl, cse, apikey, query)
+    if page > 1:
+        fullurl += "&start=%s&num=10" % ((int(page)-1) * 10)
+    print fullurl
     return requests.get(fullurl).json()
 
 if __name__ == '__main__':

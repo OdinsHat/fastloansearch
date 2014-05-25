@@ -102,4 +102,15 @@ def page_copyright():
 def page_about():
     return render_template('about.html')
 
-### /Pages ###
+### Utility Functions ###
+
+def search_google(query):
+    requesturl = "https://www.googleapis.com/customsearch/v1"
+    cse = "008208809341786190865:lstx_fuuzog"
+    apikey = "AIzaSyChRMCztfdN94uJWfHhaPUhQh102uMFV_k"
+    fullurl = "%s?cx=%s&key=%s&q=%sfilter=1" % (requesturl, cse, apikey, query)
+
+    return requests.get(fullurl).json()
+
+if __name__ == '__main__':
+    app.run()

@@ -21,14 +21,18 @@
 
 {% block body %}
 <div class="page-header">
-    <h1>{{ type|capitalize }} Loans</h1>
+    {%  if type == '0 purchases' %}
+    <h2>0% on Purchases Credit Cards</h2>
+    {% else %}
+    <h2>{{ type|capitalize }} Credit Cards</h2>
+    {% endif %}
 </div>
 <div class="row">
     <div class="col-md-8">
         <section id="results">
             {% for item in data['items'] %}
                 <article id="result-{{ loop.index }}" class="row">
-                    <h4 class="media-heading"><a href="{{ item['link'] }}">{{ item['htmlTitle'] }}</a></h4>
+                    <h4 class="media-heading"><a href="{{ item['link'] }}">{{ item['title'] }}</a></h4>
                     <p>
                         {{ item['snippet'] }}
                     </p>

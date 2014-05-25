@@ -47,6 +47,16 @@
                             <li><a href="/loans/debt">Debt Consolidation</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown{% if request.path.startswith('/cards') == True %} active{% endif %}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credit Cards<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/cards/cashback">Cash Back Cards</a></li>
+                            <li><a href="/cards/bad_credit">Credit Builder Cards</a></li>
+                            <li><a href="/cards/0 purchases">0% Purchases</a></li>
+                            <li><a href="/cards/prepaid">Prepaid</a></li>
+                        </ul>
+                    </li>
+                <!--
                     <li class="dropdown{% if request.path.startswith('/tools') == True %} active{% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credit Tools <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -58,6 +68,7 @@
                                 Card Calculator</a></li>
                         </ul>
                     </li>
+                -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

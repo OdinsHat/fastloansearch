@@ -31,17 +31,7 @@ def loans_search(type, page=1):
     if type not in allowed_types:
         abort(404, "Unknown loan type")
 
-    cse = "008208809341786190865:lstx_fuuzog"
-    query = "%s loans" % (type)
-    apikey = "AIzaSyChRMCztfdN94uJWfHhaPUhQh102uMFV_k"
-    requesturl = "https://www.googleapis.com/customsearch/v1"
-    fullurl = "%s?cx=%s&key=%s&q=%s&filter=1" % (requesturl, cse, apikey, query)
-    if page > 1:
-        fullurl += "&start=11&num=10"
-
-    data = requests.get(fullurl)
-
-    results = data.json()
+    results = search_google(("%s loans" % (type)), page)
 
     for result in results['items']:
         r = Result(

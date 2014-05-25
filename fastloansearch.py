@@ -1,6 +1,8 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
-from flask_debugtoolbar import DebugToolbarExtension
 import requests
+from flask_debugtoolbar import DebugToolbarExtension
+from database import db_session
+from models import Result, Product
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -12,7 +14,14 @@ app.config.update(dict(
 
 toolbar = DebugToolbarExtension(app)
 
-### Searches ###
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
+
+@app.route('/')
+def homepage():
+    """Main (very basic) homepage"""
+    return render_template('homepage.html')
 
 @app.route('/loans/<type>')
 def loans_search(type):

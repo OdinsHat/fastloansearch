@@ -1,0 +1,37 @@
+{% extends  "layout.html" %}
+
+{% block title %}Pick your loan type{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/search.min.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container startblock">
+    <div class="jumbotron">
+        <h1>Find your loan FAST!</h1>
+        <p>
+            Whatever your looking for either pick from the icons below or use the menus above to
+            find exactly the financial service you're after.
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="loantypes">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="/loans/unsecured" data-icon="c" id="loans-icon">&nbsp;</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/creditcards" data-icon="m" id="card-icon">&nbsp;</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/loans/secured" data-icon="g" id="home-icon">&nbsp;</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

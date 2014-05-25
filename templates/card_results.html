@@ -1,0 +1,54 @@
+{% extends  "layout.html" %}
+
+{% block title %}{{ type }}Credit Card Search Results{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+    (function ($) {
+        'use strict';
+
+        $(function(){
+            $('section#results article').each(bouncey);
+        });
+
+        function bouncey(index, element){
+            console.log(element);
+            $(element).delay(3000).slideDown();
+        }
+    }(jQuery));
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="page-header">
+    <h1>{{ type|capitalize }} Loans</h1>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <section id="results">
+            {% for item in data['items'] %}
+                <article id="result-{{ loop.index }}" class="row">
+                    <h4 class="media-heading"><a href="{{ item['link'] }}">{{ item['htmlTitle'] }}</a></h4>
+                    <p>
+                        {{ item['snippet'] }}
+                    </p>
+                    <footer>{{ item['displayLink'] }}</footer>
+                </article>
+                <hr/>
+            {% endfor %}
+        </section>
+    </div>
+    <div class="col-md-4">
+        <!-- 263px col-md-3 -->
+        <!-- 360px col-md-4 -->
+        <div id="aff-sugs" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Suggestions</h3>
+            </div>
+            <div class="panel-body" id="aff-banners">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

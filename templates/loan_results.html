@@ -1,0 +1,83 @@
+{% extends  "layout.html" %}
+
+{% block title %}Pick your loan type{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        'use strict';
+
+        $(".search-result").each(function(i) {
+          $(this).delay(i * 400).fadeIn();
+        });
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>{{ type|capitalize }} Loans</h1>
+    </div>
+
+<div class="col-sm-12">
+    <p>
+        If you're looking for {{ type|capitalize }} loans then below are the top 10 results for this category.
+        If these don't suit then be sure to check out our further suggestions on the right.
+    </p>
+</div>
+    <div class="container">
+<div class="row">
+    <div class="col-md-8">
+        <section id="results">
+            {% for item in data['items'] %}
+                <!-- Search Result -->
+                <article id="result-{{ loop.index }}" class="row search-result" style="display:none">
+                    <h4><a href="{{ item['link'] }}">{{ item['title'] }}</a></h4>
+                    <p>
+                        {{ item['snippet'] }}
+                    </p>
+                    <footer class="text-muted">{{ item['displayLink'] }}</footer>
+                    <hr/>
+                </article>
+                <!-- /Search Result -->
+            {% endfor %}
+        </section>
+        <ul class="pagination">
+            <li {% if page == 1 %}class="disabled"{% endif %}><a href="/{{ type }}/{{ page - 1 }}">&laquo;</a></li>
+            {%  for i in range(1,5) %}
+                {% if i == page %}
+                    <li class="active"><a href="/loans/{{ type }}/{{ i }}">{{ i }}</a></li>
+                {% else %}
+                    <li><a href="/loans/{{ type }}/{{ i }}">{{ i }}</a></li>
+                {%  endif %}
+            {%  endfor %}
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <!-- 263px col-md-3 -->
+        <!-- 360px col-md-4 -->
+        <div id="aff-sugs" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Related</h3>
+            </div>
+            <div class="panel-body" id="aff-banners">
+                <div class="list-group">
+                    {% for term in related %}
+                    <a href="/loans/{{ term }}" class="list-group-item">{{ term|capitalize }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div id="aff-sugs" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Suggestions</h3>
+            </div>
+            <div class="panel-body" id="aff-banners">
+
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+{% endblock %}

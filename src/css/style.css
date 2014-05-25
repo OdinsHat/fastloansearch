@@ -37,12 +37,16 @@ body > .container {
 code {
   font-size: 80%;
 }
-
 .loantypes div div a {
     color:#000;
+    -webkit-transition: color 2s, zoom 1s;
+    -o-transition: color 2s, zoom 1s;
+    -moz-transition: color 2s, zoom 1s;
+    -ms-transition: color 2s, zoom 2s;
+    transition: color 2s, zoom 2s;
 }
 
 .loantypes div div a:hover {
-    color:#000;
+    color:#999;
     text-decoration: none;
 }

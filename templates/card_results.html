@@ -53,6 +53,17 @@
 
             </div>
         </div>
+
+        <div id="search-sugs" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Related</h3>
+            </div>
+            <div class="panel-body">
+                {% for term in related %}
+                    <a href="/cards/{{ term }}" class="list-group-item">{{ term|capitalize }}</a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

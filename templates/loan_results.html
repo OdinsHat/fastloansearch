@@ -59,24 +59,24 @@
         <!-- 360px col-md-4 -->
         <div id="aff-sugs" class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Related</h3>
-            </div>
-            <div class="panel-body" id="aff-banners">
-                <div class="list-group">
-                    {% for term in related %}
-                    <a href="/loans/{{ term }}" class="list-group-item">{{ term|capitalize }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div id="aff-sugs" class="panel panel-default">
-            <div class="panel-heading">
                 <h3 class="panel-title">Suggestions</h3>
             </div>
             <div class="panel-body" id="aff-banners">
 
             </div>
         </div>
+
+        <div id="search-sugs" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Related</h3>
+            </div>
+            <div class="panel-body" id="aff-banners">
+                {% for term in related %}
+                <a href="/loans/{{ term }}" class="list-group-item">{{ term|capitalize }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
 </div>
     </div>

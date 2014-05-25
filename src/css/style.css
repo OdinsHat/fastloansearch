@@ -38,3 +38,11 @@ code {
   font-size: 80%;
 }
 
+.loantypes div div a {
+    color:#000;
+}
+
+.loantypes div div a:hover {
+    color:#000;
+    text-decoration: none;
+}

@@ -1,9 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends "layout.html" %}
 
-</body>
-</html>
+{% block title %}Privacy{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <header>
+                <h2>Privacy</h2>
+            </header>
+            <article>
+                <section>
+                <h3>Copyright &amp; Attribution</h3>
+                <ul>
+                    <li>Search results come from 3 locations:
+                        <ul>
+                            <li>Google Custom Search API</li>
+                            <li>Affiliate feed data provided by lenders as part of an affiliate relationship/network.</li>
+                            <li>Spidering the web for deals to augment the existing results.</li>
+                        </ul>
+                    </li>
+                    <li>Site content besides the results is copyright Doug Bromley.</li>
+                    <li>
+                        Although under copyright the source code for the site is
+                        released under the open source MIT license. More information can be found
+                        <a href="https://github.com/OdinsHat/fastloansearch/blob/master/LICENSE">here</a>
+                    </li>
+                </ul>
+                </section>
+            </article>
+        </div>
+        <div class="col-md-3">
+            Banners
+        </div>
+    </div>
+</div>
+{% endblock %}

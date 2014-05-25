@@ -57,13 +57,14 @@ def loans_search(type, page=1):
     )
 
 @app.route('/cards/<type>')
-def credit_cards(type='all'):
+@app.route('/cards/<type>/<page>')
+def credit_cards(type='all', page=1):
     """Credit cards search"""
     allowed_types = ('cashback', 'bad_credit', '0 purchases', 'prepaid', 'all')
     if type not in allowed_types:
         abort(404, "Unknown credit card type")
 
-    results = search_google("%s credit cards" % (type))
+    results = search_google("%s credit cards" % (type), page)
 
     return render_template('card_results.html', data=results, type=type, related=allowed_types)
 

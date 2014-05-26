@@ -24,21 +24,7 @@ def loans_search(type, page=1):
         abort(404, "Unknown loan type")
 
     results = search_google(("%s loans" % (type)), page)
-
-    for result in results['items']:
-        r = Result(
-            result['title'],
-            result['htmlTitle'],
-            result['link'],
-            result['displayLink'],
-            result['snippet'],
-            result['htmlSnippet'],
-            result['formattedUrl'],
-            result['htmlFormattedUrl'],
-            type
-        )
-        db_session.add(r)
-        db_session.commit()
+    save_results(results)
     
     return render_template(
         'loan_results.html',
@@ -96,6 +82,23 @@ def search_google(query, page):
         fullurl += "&start=%s&num=10" % ((int(page)-1) * 10)
     print fullurl
     return requests.get(fullurl).json()
+
+def save_results(results):
+    for result in results['items']:
+        r = Result(
+            result['title'],
+            result['htmlTitle'],
+            result['link'],
+            result['displayLink'],
+            result['snippet'],
+            result['htmlSnippet'],
+            result['formattedUrl'],
+            result['htmlFormattedUrl'],
+            type
+        )
+        db_session.add(r)
+        db_session.commit()
+
 
 if __name__ == '__main__':
     app.run()

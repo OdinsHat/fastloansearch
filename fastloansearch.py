@@ -43,6 +43,7 @@ def credit_cards(type='all', page=1):
         abort(404, "Unknown credit card type")
 
     results = search_google("%s credit cards" % (type), page)
+    save_results(results)
 
     return render_template('card_results.html', data=results, type=type, related=allowed_types)
 

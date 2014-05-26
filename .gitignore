@@ -107,3 +107,6 @@ docs/_build/
 
 # Ignoring Grunt build directory
 static/
+
+key.py
+key.pyc

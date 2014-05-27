@@ -32,7 +32,7 @@ class Result(Base):
         self.type = type
 
     def __repr__(self):
-        return "%s <%s>" % (self.title, self.url)
+        return "%s <%s>" % (self.title, self.displaylink)
 
 class Product(Base):
     """Contains spidered data"""

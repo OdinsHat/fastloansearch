@@ -25,7 +25,7 @@ def loans_search(type, page=1):
         abort(404, "Unknown loan type")
 
     results = search_google(("%s loans" % (type)), page)
-    save_results(results)
+    save_results(results, type)
     
     return render_template(
         'loan_results.html',
@@ -85,7 +85,7 @@ def search_google(query, page):
     print fullurl
     return requests.get(fullurl).json()
 
-def save_results(results):
+def save_results(results, type):
     for result in results['items']:
         r = Result(
             result['title'],

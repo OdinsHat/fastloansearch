@@ -15,6 +15,7 @@ db_session = scoped_session(sessionmaker(autoflush=False,
 Base = declarative_base()
 Base.query = db_session.query_property()
 
+
 def init_db():
     """
     Initialises the database given the imported models

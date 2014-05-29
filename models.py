@@ -5,6 +5,7 @@ Database models for Fast Loan Search
 from sqlalchemy import Column, Integer, Float, String, Text, DateTime, func
 from database import Base
 
+
 class Result(Base):
     """Used as a cache for search results from Google's Custom Search engine API"""
     __tablename__ = 'result'
@@ -20,7 +21,18 @@ class Result(Base):
     type = Column(String(16), unique=False)
     created_at = Column(DateTime, default=func.now())
 
-    def __init__(self, title, htmltitle, link, displaylink, snippet, htmlsnippet, formatted_url, htmlformatted_url, type):
+    def __init__(
+            self,
+            title,
+            htmltitle,
+            link,
+            displaylink,
+            snippet,
+            htmlsnippet,
+            formatted_url,
+            htmlformatted_url,
+            type
+    ):
         self.title = title
         self.htmltitle = htmltitle
         self.link = link
@@ -33,6 +45,7 @@ class Result(Base):
 
     def __repr__(self):
         return "%s <%s>" % (self.title, self.displaylink)
+
 
 class Product(Base):
     """Contains spidered data"""

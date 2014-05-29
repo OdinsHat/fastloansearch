@@ -1,4 +1,4 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template
 import requests
 from database import db_session
 from models import Result, Product
@@ -11,10 +11,12 @@ app.config.from_object(__name__)
 def shutdown_session(exception=None):
     db_session.remove()
 
+
 @app.route('/')
 def homepage():
     """Main (very basic) homepage"""
     return render_template('homepage.html')
+
 
 @app.route('/loans/<type>')
 @app.route('/loans/<type>/<page>')
@@ -35,6 +37,7 @@ def loans_search(type, page=1):
         page=int(page)
     )
 
+
 @app.route('/cards/<type>')
 @app.route('/cards/<type>/<page>')
 def credit_cards(type='all', page=1):
@@ -44,36 +47,43 @@ def credit_cards(type='all', page=1):
         abort(404, "Unknown credit card type")
 
     results = search_google("%s credit cards" % (type), page)
-    save_results(results)
+    if results.reason is 'OK':
+        save_results(results, type)
+    else:
+        get_results('card', type)
 
-    return render_template('card_results.html', data=results, type=type, related=allowed_types)
+    return render_template(
+        'card_results.html',
+        data=results,
+        type=type,
+        related=allowed_types,
+        page=int(page)
+    )
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html', error=error)
 
-### Finance Tools ###
 
 @app.route('/tools/loan_calculator')
 def loan_calculator():
     return render_template('tools/loan_calculator.html')
 
 
-### Pages ###
-
 @app.route('/privacy')
 def page_privacy():
     return render_template('privacy.html')
+
 
 @app.route('/copyright')
 def page_copyright():
     return render_template('copyright.html')
 
+
 @app.route('/about')
 def page_about():
     return render_template('about.html')
 
-### Utility Functions ###
 
 def search_google(query, page):
     requesturl = "https://www.googleapis.com/customsearch/v1"
@@ -84,6 +94,7 @@ def search_google(query, page):
         fullurl += "&start=%s&num=10" % ((int(page)-1) * 10)
     print fullurl
     return requests.get(fullurl).json()
+
 
 def save_results(results, type):
     for result in results['items']:
@@ -100,6 +111,11 @@ def save_results(results, type):
         )
         db_session.add(r)
         db_session.commit()
+
+
+def get_results(section, type):
+    pass
+    #results = Result.query.filter(Result.type == type).group_by('displaylink').all()[:10]
 
 
 if __name__ == '__main__':

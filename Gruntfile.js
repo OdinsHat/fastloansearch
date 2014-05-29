@@ -86,6 +86,23 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        pylint: {
+            options: {
+                virtualenv: '/Users/doug/.virtualenvs/fls',
+                force: true
+            },
+            src: '*.py'
+        },
+        flake8: {
+            options: {
+                maxLineLength: 120,
+                maxComplexity: 10,
+                format: 'pylint',
+                hangClosing: true,
+                force: true
+            },
+            src: ['*.py']
         }
    });
 
@@ -95,6 +112,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-pylint');
+    grunt.loadNpmTasks('grunt-flake8');
+
     grunt.registerTask('default', ['clean', 'copy', 'jshint', 'uglify', 'cssmin', 'imagemin']);
     grunt.registerTask('noimgs', ['copy', 'jshint', 'uglify', 'cssmin']);
+    grunt.registerTask('lintpy', ['pylint', 'flake8']);
 };

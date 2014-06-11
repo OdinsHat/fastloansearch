@@ -22,7 +22,7 @@ def homepage():
 @app.route('/loans/<type>/<page>')
 def loans_search(type, page=1):
     """Loans search"""
-    allowed_types = ('secured', 'unsecured', 'payday', 'car', 'holiday')
+    allowed_types = ('secured', 'personal', 'bad+credit', 'car', 'holiday', 'wedding', 'unsecured')
     if type not in allowed_types:
         abort(404, "Unknown loan type")
 

@@ -14,9 +14,9 @@
 
 [data-icon]:before {
   font-family: "loan-fonts" !important;
-  font-size: 150px;
   content: attr(data-icon);
   font-style: normal !important;
+  font-size:150px;
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
@@ -39,54 +39,72 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-vallet:before {
+.icon-wallet:before {
   content: "a";
-}
-.icon-banknote:before {
-  content: "b";
-}
-.icon-vallet:before {
-  content: "a";
-}
-.icon-fontawesome-webfont:before {
-  content: "c";
-}
-.icon-credit-card:before {
-  content: "d";
-}
-.icon-home:before {
-  content: "e";
-}
-.icon-fontawesome-webfont-1:before {
-  content: "f";
-}
-.icon-home-1:before {
-  content: "g";
-}
-.icon-home-2:before {
-  content: "h";
-}
-.icon-shop:before {
-  content: "j";
-}
-.icon-fontawesome-webfont-2:before {
-  content: "k";
 }
 .icon-credit-card-1:before {
   content: "l";
 }
-.icon-credit-cards:before {
-  content: "m";
+.icon-personal2:before {
+  content: "b";
 }
-.icon-bank-notes:before {
-  content: "n";
+.icon-fa-pound:before {
+  content: "c";
 }
-.icon-cittadinosymbols-webfont-1:before {
-  content: "o";
+.icon-fa-wedding:before {
+  content: "d";
 }
-.icon-home-house-streamline:before {
+.icon-fa-home:before {
+  content: "e";
+}
+.icon-fa-p2p:before {
+  content: "f";
+}
+.icon-fa-cloud:before {
+  content: "g";
+}
+.icon-fa-badcredit2:before {
+  content: "h";
+}
+.icon-fa-payday:before {
   content: "i";
 }
-.loantypes .col-md-4 {
-    text-align: center;
+.icon-fa-badcredit2-1:before {
+  content: "j";
+}
+.icon-fa-holiday:before {
+  content: "k";
+}
+.icon-fa-badcredit:before {
+  content: "m";
+}
+.icon-fa-card:before {
+  content: "n";
+}
+.icon-home:before {
+  content: "o";
+}
+.icon-wedding:before {
+  content: "p";
+}
+.icon-personal:before {
+  content: "q";
+}
+.icon-calculator:before {
+  content: "r";
+}
+.icon-guarantor:before {
+  content: "s";
+}
+.icon-badcredit:before {
+  content: "t";
+}
+.icon-rain-badcredit:before {
+  content: "u";
+}
+.icon-fontawesome-webfont:before {
+  content: "v";
+}
+.icon-carloan:before {
+  content: "w";
 }

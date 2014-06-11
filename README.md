@@ -6,8 +6,6 @@ with the [Flask web framework](http://flask.pocoo.org/) and a
 number of other technologies which I don't get to show
 publically in my day job due to commercial reasons.
 
-Although as my Github account suggests this is changing.
-
 ## Technology Used - Server side
 
 * **[Python]** - Maybe a little obvious but all of the site components are founded on Python technologies (except nginx).

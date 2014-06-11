@@ -23,7 +23,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  padding: 60px 15px 0;
+  padding: 70px 15px 0;
 }
 .container .text-muted {
   margin: 20px 0;
@@ -39,14 +39,22 @@ code {
 }
 .loantypes div div a {
     color:#000;
-    -webkit-transition: color 2s, zoom 1s;
-    -o-transition: color 2s, zoom 1s;
-    -moz-transition: color 2s, zoom 1s;
-    -ms-transition: color 2s, zoom 2s;
-    transition: color 2s, zoom 2s;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
 }
 
 .loantypes div div a:hover {
     color:#999;
     text-decoration: none;
+}
+
+div.loans-row div h4 {
+    display:none;
+}
+
+.loans-row {
+    margin-top:100px;
+    text-align:center;
 }

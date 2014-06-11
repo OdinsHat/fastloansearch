@@ -2,7 +2,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 import requests
 from database import db_session
 from models import Result, Product
-from key import GOOGLEKEY, CSE
+from key import GOOGLEKEY, CSE, AWINID, MIDS
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -34,7 +34,8 @@ def loans_search(type, page=1):
         data=results,
         type=type,
         related=allowed_types,
-        page=int(page)
+        page=int(page),
+        mids = MIDS
     )
 
 

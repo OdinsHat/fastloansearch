@@ -85,6 +85,13 @@ def page_copyright():
 def page_about():
     return render_template('about.html')
 
+app.route('/goto/<mid>/<clickref>')
+def goto_merchant(mid, clickref):
+    if mid is None:
+        abort(404, "Unknown merchant")
+    url = ("http://www.awin1.com/cread.php?awinmid=%s&awinaffid=%s&clickref=%s" % (mid, AWINID, clickref))
+    return redirect(url, 302)
+
 
 def search_google(query, page):
     requesturl = "https://www.googleapis.com/customsearch/v1"

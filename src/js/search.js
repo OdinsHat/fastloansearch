@@ -19,10 +19,14 @@
     }
 
     $(function($) {
-        $('#loans-icon').addClass('animated bounceInLeft');
-        $('#card-icon').addClass('animated bounceInDown');
-        $('#home-icon').addClass('animated bounceInRight');
-    });
+        $('#loan-unsecured').addClass('animated bounceInLeft');
+        $('#loan-secured').addClass('animated bounceInDown');
+        $('#loan-badcredit').addClass('animated bounceInRight');
 
-    
+        $('#loan-car').addClass('animated bounceInLeft');
+        $('#loan-holiday').addClass('animated bounceInUp');
+        $('#loan-wedding').addClass('animated bounceInRight');
+
+        $('div.loans-row div h4').fadeIn(3000);
+    });
 }($));

@@ -62,7 +62,15 @@
                 <h3 class="panel-title">Suggestions</h3>
             </div>
             <div class="panel-body" id="aff-banners">
-
+                {% if type == 'car' %}
+                    {% for mid in mids['car'] %}
+                        <li><a href="/goto/{{ mid.values()[0] }}/car">{{ mid.keys()[0] }}</a></li>
+                    {%  endfor %}
+                {%  elif type == 'unsecured' or type == 'personal' %}
+                    {% for mid in mids['personal'] %}
+                        <li><a href="/goto/{{ mid.values()[0] }}/loan">{{ mid.keys()[0] }}</a></li>
+                    {%  endfor %}
+                {%  endif %}
             </div>
         </div>
 

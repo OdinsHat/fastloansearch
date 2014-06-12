@@ -6,11 +6,10 @@ with the [Flask web framework](http://flask.pocoo.org/) and a
 number of other technologies which I don't get to show
 publically in my day job due to commercial reasons.
 
-Although as my Github account suggests this is changing.
-
 ## Technology Used - Server side
 
-* **[Python]** - Maybe a little obvious but all of the site components are founded on Python technologies (except nginx).
+* **[Python](http://www.python.org)** - Maybe a little obvious but all of the site components are founded on Python technologies (except nginx).
+* **[Scrapy](http://scrapy.org/)** - Open source web framework for scraping the web. Used for spidering some results to add value to the user experience.
 * **[Flask](http://flask.pocoo.org/)** - for the main web request handling & serving
     * **[Jinja2](http://jinja.pocoo.org/docs/)** - template system
 * **[uWSGI](http://uwsgi-docs.readthedocs.org)** - the Python application server that sits behind...

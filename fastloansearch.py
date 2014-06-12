@@ -61,9 +61,10 @@ def credit_cards(type='all', page=1):
         page=int(page)
     )
 
-app.route('/goto/<mid>/<clickref>')
-def goto_merchant(mid, clickref):
-    url = ("http://www.awin1.com/cread.php?awinmid=%s&awinaffid=%s&clickref=%s" % (mid, AWINID, clickref))
+@app.route('/goto/<mid>')
+@app.route('/goto/<mid>/<clickref>')
+def goto_merchant(mid=None, clickref=None):
+    url = ("http://www.awin1.com/awclick.php?mid=%s&id=%s" % (mid, AWINID))
     return redirect(url, 302)
 
 @app.errorhandler(404)

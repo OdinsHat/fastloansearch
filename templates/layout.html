@@ -42,37 +42,23 @@
                     <li class="dropdown{% if request.path.startswith('/loans') == True %} active{% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loans<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/loans/unsecured">Unsecured Loans</a></li>
-                            <li><a href="/loans/secured">Secured Loans</a></li>
-                            <li><a href="/loans/bad+credit">Bad Credit</a></li>
-                            <li><a href="/loans/car">Car Loans</a></li>
-                            <li><a href="/loans/holiday">Holiday Loans</a></li>
-                            <li><a href="/loans/car">Wedding Loans</a></li>
+                            <li><a href="/loans/unsecured" rel="nofollow">Unsecured Loans</a></li>
+                            <li><a href="/loans/secured" rel="nofollow">Secured Loans</a></li>
+                            <li><a href="/loans/bad+credit" rel="nofollow">Bad Credit</a></li>
+                            <li><a href="/loans/car" rel="nofollow">Car Loans</a></li>
+                            <li><a href="/loans/holiday" rel="nofollow">Holiday Loans</a></li>
+                            <li><a href="/loans/weding" rel="nofollow">Wedding Loans</a></li>
                         </ul>
                     </li>
                     <li class="dropdown{% if request.path.startswith('/cards') == True %} active{% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credit Cards<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/cards/cashback">Cash Back Cards</a></li>
-                            <li><a href="/cards/bad_credit">Credit Builder Cards</a></li>
-                            <li><a href="/cards/0 purchases">0% Purchases</a></li>
-                            <li><a href="/cards/prepaid">Prepaid</a></li>
+                            <li><a href="/cards/cashback" rel="nofollow">Cash Back Cards</a></li>
+                            <li><a href="/cards/bad_credit" rel="nofollow">Credit Builder Cards</a></li>
+                            <li><a href="/cards/0 purchases" rel="nofollow">0% Purchases</a></li>
+                            <li><a href="/cards/prepaid" rel="nofollow">Prepaid</a></li>
                         </ul>
                     </li>
-                <!--
-                    <li class="dropdown{% if request.path.startswith('/tools') == True %} active{% endif %}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credit Tools <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li {% if request.path == '/tools/loan_calculator' %}class="active"{% endif %}><a
-                                    href="/tools/loan_calculator">Loan Calculator</a></li>
-                            <li {% if request.path == '/tools/mortgage_calculator' %}class="active"{% endif %}><a
-                                    href="#">Mortgage Calculator</a></li>
-                            <li {% if request.path == '/tools/credit_cards' %}class="active"{% endif %}><a href="#">Credit
-                                Card Calculator</a></li>
-                        </ul>
-
-                    </li>
-                -->
                 </ul>
             </div><!-- /#bs-example-navbar-collapse-1 -->
         </div><!-- /.container -->

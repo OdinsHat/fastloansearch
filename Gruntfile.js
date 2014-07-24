@@ -90,6 +90,18 @@ module.exports = function(grunt) {
                         filter: 'isFile'
                     }
                 ]
+            },
+            /* Bootstrap is already custom built and minified by its own Gruntfile supplied by Bower */
+            bootstrap: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'src/css',
+                        src: ['bootstrap-theme.min.css', 'bootstrap.min.css'],
+                        dest: 'static/css/',
+                        filter: 'isFile'
+                    }
+                ]
             }
         },
         pylint: {

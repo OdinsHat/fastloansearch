@@ -8,8 +8,10 @@ __email__ = "doug@tintophat.com"
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from key import DBNAME, DBPASS, DBUSER
 
-engine = create_engine('mysql://fls:thesparticus@localhost/fls', convert_unicode=True)
+connection_string = 'mysql://%s:%s@localhost/%s?charset=utf8&use_unicode=0' % (DBUSER, DBPASS, DBNAME)
+engine = create_engine(connection_string, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autoflush=False,
                                          bind=engine))
 Base = declarative_base()

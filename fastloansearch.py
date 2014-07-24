@@ -106,10 +106,11 @@ def save_results(results, type):
         db_session.add(r)
         db_session.commit()
 
-
-def get_results(section, type):
-    pass
-    #results = Result.query.filter(Result.type == type).group_by('displaylink').all()[:10]
+def get_results(product_type):
+    results = Result.query.filter_by(type=product_type).group_by('displaylink').all()[:10]
+    if len(results) < 10:
+        return None
+    return results
 
 
 if __name__ == '__main__':

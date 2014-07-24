@@ -2,6 +2,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 import requests
 from database import db_session
 from models import Result, Product
+from random import randrange
 from key import GOOGLEKEY, CSE, AWINID, MIDS
 
 app = Flask(__name__)

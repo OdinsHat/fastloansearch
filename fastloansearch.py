@@ -24,7 +24,7 @@ def homepage():
 def loans_search(type, page=1):
     """Loans search"""
     allowed_types = ('secured', 'personal', 'bad credit', 'car', 'holiday', 'wedding', 'unsecured')
-    if type not in allowed_types:
+    if type not in allowed_types or type == "bad+credit":
         abort(404, "Unknown loan type")
 
     showsponsored = randrange(1,10)

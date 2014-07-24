@@ -6,10 +6,9 @@
 -->
     <title>{% block title %}{% endblock %} @ Fast Loan Search</title>
 
-    <!-- Latest compiled and minified Bootstrap -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
-    <!-- /.Latest compiled and minified CSS -->
+    <!-- Custom Compiled from Bootstap's LESS files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+    <!-- /Custom Compiled from Bootstap's LESS files -->
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}"/>

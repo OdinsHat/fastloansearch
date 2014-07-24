@@ -14,7 +14,7 @@ class Result(Base):
     htmltitle = Column(String(255), unique=False)
     link = Column(String(255), unique=False)
     displaylink = Column(String(255), unique=False)
-    snippet = Column(String(255), unique=False)
+    snippet = Column(Text, unique=False)
     htmlsnippet = Column(Text)
     formatted_url = Column(String(255), unique=False)
     htmlformatted_url = Column(String(255), unique=False)

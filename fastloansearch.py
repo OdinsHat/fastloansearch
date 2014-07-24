@@ -96,15 +96,15 @@ def search_google(query, page):
 def save_results(results, type):
     for result in results['items']:
         r = Result(
-            result['title'],
-            result['htmlTitle'],
-            result['link'],
-            result['displayLink'],
-            result['snippet'],
-            result['htmlSnippet'],
-            result['formattedUrl'],
-            result['htmlFormattedUrl'],
-            type
+            result['title'].strip(),
+            result['htmlTitle'].strip(),
+            result['link'].strip(),
+            result['displayLink'].strip(),
+            result['snippet'].strip(),
+            result['htmlSnippet'].strip(),
+            result['formattedUrl'].strip(),
+            result['htmlFormattedUrl'].strip(),
+            type.strip()
         )
         db_session.add(r)
         db_session.commit()

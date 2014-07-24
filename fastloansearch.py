@@ -27,35 +27,25 @@ def loans_search(type, page=1):
     if type not in allowed_types:
         abort(404, "Unknown loan type")
 
-    results = search_google(("%s loans" % (type)), page)
-    save_results(results, type)
-    
-    return render_template(
-        'loan_results.html',
-        data=results,
-        type=type,
-        related=allowed_types,
-        page=int(page),
-        mids = MIDS
-    )
-
-
-@app.route('/cards/<type>')
-@app.route('/cards/<type>/<page>')
-def credit_cards(type='all', page=1):
-    """Credit cards search"""
-    allowed_types = ('cashback', 'bad_credit', '0 purchases', 'prepaid', 'all')
-    if type not in allowed_types:
-        abort(404, "Unknown credit card type")
-
-    results = search_google("%s credit cards" % (type), page)
-    if results.reason is 'OK':
+    if randrange(1,10) > 5:
+        source='google'
+        print('Saving results')
+        results = search_google(("%s loans" % (type)), page)
         save_results(results, type)
     else:
-        get_results('card', type)
+        source='db'
+        print('Getting results')
+        results = get_results(type)
+        if not results:
+            results = search_google(("%s loans" % (type)), page)
+            save_results(results, type)
+            source='google'
+
+
+    #pdb.set_trace()
 
     return render_template(
-        'card_results.html',
+        'loan_results.html',
         data=results,
         type=type,
         related=allowed_types,

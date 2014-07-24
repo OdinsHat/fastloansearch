@@ -29,18 +29,15 @@
 <div class="row">
     <div class="col-md-8">
         <section id="results">
-            {% for item in data['items'] %}
-                <!-- Search Result -->
-                <article id="result-{{ loop.index }}" class="row search-result" style="display:none">
-                    <h4><a href="{{ item['link'] }}">{{ item['title'] }}</a></h4>
-                    <p>
-                        {{ item['snippet'] }}
-                    </p>
-                    <footer class="text-muted">{{ item['displayLink'] }}</footer>
-                    <hr/>
-                </article>
-                <!-- /Search Result -->
-            {% endfor %}
+
+            <!-- Search Results -->
+            {% if source == 'google' %}
+            {% include '_google_results.html' %}
+            {% else %}
+            {% include '_db_results.html' %}
+            {%  endif %}
+            <!-- Search Results -->
+
         </section>
         <ul class="pagination">
             <li {% if page == 1 %}class="disabled"{% endif %}><a href="/{{ type }}/{{ page - 1 }}">&laquo;</a></li>

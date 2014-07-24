@@ -1,0 +1,12 @@
+{% for item in data['items'] %}
+    <!-- Search Result -->
+    <article id="result-{{ loop.index }}" class="row search-result" style="display:none">
+        <h4><a href="{{ item['link'] }}">{{ item['title'] }}</a></h4>
+        <p>
+            {{ item['snippet'] }}
+        </p>
+        <footer class="text-muted">{{ item['displayLink'] }}</footer>
+        <hr/>
+    </article>
+    <!-- /Search Result -->
+{% endfor %}

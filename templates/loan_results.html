@@ -29,7 +29,7 @@
 <div class="row">
     <div class="col-md-8">
         <section id="results">
-
+            {% include '_sponsored.html' %}
             <!-- Search Results -->
             {% if source == 'google' %}
             {% include '_google_results.html' %}
@@ -37,7 +37,6 @@
             {% include '_db_results.html' %}
             {%  endif %}
             <!-- Search Results -->
-
         </section>
         <ul class="pagination">
             <li {% if page == 1 %}class="disabled"{% endif %}><a href="/{{ type }}/{{ page - 1 }}">&laquo;</a></li>

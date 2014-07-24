@@ -110,3 +110,4 @@ static/
 
 key.py
 key.pyc
+templates/_sponsored.html

@@ -23,9 +23,13 @@ def homepage():
 @app.route('/loans/<type>/<page>')
 def loans_search(type, page=1):
     """Loans search"""
-    allowed_types = ('secured', 'personal', 'bad+credit', 'car', 'holiday', 'wedding', 'unsecured')
+    allowed_types = ('secured', 'personal', 'bad credit', 'car', 'holiday', 'wedding', 'unsecured')
     if type not in allowed_types:
         abort(404, "Unknown loan type")
+
+    showsponsored = 0
+    if randrange(1,10) >5:
+        showsponsored = 1
 
     if randrange(1,10) > 5:
         source='google'
@@ -46,7 +50,8 @@ def loans_search(type, page=1):
         type=type.replace('+', ' '),
         related=allowed_types,
         page=int(page),
-        mids = MIDS
+        mids = MIDS,
+        showsponsored=showsponsored
     )
 
 @app.route('/goto/<mid>')

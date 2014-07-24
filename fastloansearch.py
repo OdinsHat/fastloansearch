@@ -29,20 +29,15 @@ def loans_search(type, page=1):
 
     if randrange(1,10) > 5:
         source='google'
-        print('Saving results')
         results = search_google(("%s loans" % (type)), page)
         save_results(results, type)
     else:
         source='db'
-        print('Getting results')
         results = get_results(type)
         if not results:
             results = search_google(("%s loans" % (type)), page)
             save_results(results, type)
             source='google'
-
-
-    #pdb.set_trace()
 
     return render_template(
         'loan_results.html',
@@ -50,7 +45,8 @@ def loans_search(type, page=1):
         source=source,
         type=type.replace('+', ' '),
         related=allowed_types,
-        page=int(page)
+        page=int(page),
+        mids = MIDS
     )
 
 @app.route('/goto/<mid>')

@@ -27,9 +27,7 @@ def loans_search(type, page=1):
     if type not in allowed_types:
         abort(404, "Unknown loan type")
 
-    showsponsored = 0
-    if randrange(1,10) >5:
-        showsponsored = 1
+    showsponsored = randrange(1,10)
 
     if randrange(1,10) > 5:
         source='google'

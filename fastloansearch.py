@@ -47,7 +47,8 @@ def loans_search(type, page=1):
     return render_template(
         'loan_results.html',
         data=results,
-        type=type,
+        source=source,
+        type=type.replace('+', ' '),
         related=allowed_types,
         page=int(page)
     )
